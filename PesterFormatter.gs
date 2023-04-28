@@ -1,3 +1,37 @@
+/*
+  ===== PESTERFORMATTER =====
+  By EduardoBirchal (https://github.com/EduardoBirchal)
+
+  HOW TO USE:
+
+  For this script to work, add a list of the character's nicknames at the beginning of your document.
+
+  Format each nickname the way you want the corresponding character's dialogue to be formatted. For
+  example, John would have "EB" and "John" as nicknames, and they would be formatted with the
+  Courier New font and blue color.
+
+  A single character can have any number of nicknames and you can put them in the same paragraph or in
+  different paragraphs, whichever you like. You can write whatever you like on the paragraph,
+  as long as it has all the nicknames you want.
+
+  Do not put multiple formattings in the same paragraph!
+
+  EXAMPLE:
+    [At the beginning of the document]
+
+    "Nicknames for my guys:
+    EB - John (ectoBiologist)
+    TT - Rose (tentacleTherapist)
+    TG: Dave (turntechGodhead)
+    bluh bluh this line doesnt matter since there's no nicknames here
+    GG - this character's name is Jade"
+
+    [Note that the contents of the paragraphs don't matter, as long as they contain all the nicknames you
+    want and have the formatting you want]
+
+  ===========================
+*/
+
 // Change these to your characters' nicknames. You can add any number of elements to the main array or any of the sub-arrays.
 // In my case, I added the character's abbreviated chumhandle and real name.
 const characters = [
@@ -64,14 +98,13 @@ function formatNickname (nickname, attributes, color) {
 
 // Formats all instances of a certain character
 function formatCharacter (character = null) {
-  // Prompts the user for a nickname if character parameter doesn't exist
   if (character == null) {
     let input = ui.prompt("Character nickname: ", "Character nickname", ui.ButtonSet.OK_CANCEL);
     let selectedNickname = input.getResponseText().toString();
 
-    character = findCharacterIndex(selectedNickname); // Finds the character with the corresponding nickname in the characters array
+    character = findCharacterIndex(selectedNickname);
 
-    if (character == null) { // If character is still null, the user asked for a nickname that doesn't exist
+    if (character == null) {
       ui.alert("ERROR: Character with nickname \"" + selectedNickname + "\" not found!");
       return;
     }
@@ -89,4 +122,13 @@ function formatEveryone () {
   for (char in characters) {
     formatCharacter (char);
   }
+}
+
+function formatPA () {
+  formatCharacter(1);
+}
+
+function test () {
+  let aa = findNickname("AA");
+  formatNickname("BAB", aa.getAttributes(), aa.getForegroundColor());
 }
