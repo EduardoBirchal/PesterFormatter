@@ -4,7 +4,7 @@
 
   HOW TO USE:
 
-  For this script to work, add a list of the character's nicknames at the beginning of your document.
+  For this script to work, add a list of the characters' nicknames at the beginning of your document.
 
   Format each nickname the way you want the corresponding character's dialogue to be formatted. For
   example, John would have "EB" and "John" as nicknames, and they would be formatted with the
@@ -36,7 +36,7 @@
 // In my case, I added the character's abbreviated chumhandle and real name.
 const characters = [
   ["RR", "Alex"],
-  ["AA", "Eric"],
+  ["AA", "Eric"], 
   ["PA", "Kate"],
   ["AH", "Sara"],
   ["CH", "Abby"],
